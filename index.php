@@ -2,15 +2,13 @@
 session_start();
 
 if (isset($_GET['button'])) {
-    // $_SESSION['time'] = time();
-    
     $_SESSION = [];
     unset($_COOKIE[session_name()]);
     session_destroy();
 
-    $host  = $_SERVER['HTTP_HOST'];
+    $host = $_SERVER['HTTP_HOST'];
 
-    $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
     $extra = 'index.php';
     header("Location: http://$host$uri/$extra");
     exit;
